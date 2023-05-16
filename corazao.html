@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazaoprueba</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" style="border: 2px solid;"></canvas>
+</body>
+<script>
+
+var canvas = document.getElementById('myCanvas');
+var c = canvas.getContext('2d');
+
+var imagen = new Image();
+var corazao = new Image()
+imagen.src = "./imagenpersona.jpg";
+corazao.src = "./corazao.png"
+
+imagen.onload = function(){
+  c.drawImage(imagen, 5,0, 240,500);
+  
+}
+
+corazao.onload = function () {
+    c.drawImage(corazao, 125,120, 50,50);
+    //animate()
+}
+canvas.width = 250
+canvas.height = 400
+
+//animate
+pum()
+
+
+function pum (){
+    let i = Math.floor((Math.random() * 20))+50
+    c.clearRect(0,0,canvas.width,canvas.height)
+    c.drawImage(imagen, 5,0, 240,500);
+    c.drawImage(corazao, 125,120, 50,50);
+    setTimeout(() => {
+        pam()
+    }, 400);
+}
+function pam(){
+    let i = Math.floor((Math.random() * 20))+50
+    c.clearRect(0,0,canvas.width,canvas.height)
+    c.drawImage(imagen, 5,0, 240,500);
+    c.drawImage(corazao, 125,120, 55,55);
+    setTimeout(() => {
+        pum()
+    }, 400);
+}
+
+</script>
+
+
+</html>
